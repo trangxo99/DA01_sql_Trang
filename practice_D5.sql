@@ -4,6 +4,9 @@ select distinct city from station where id % 2 = 0
 -- EX 2 --
 select count(city) - count(distinct city) from station
 
+-- EX 3 --
+select ceiling(avg(salary) - avg(replace(salary, '0', ''))) from employees -- ceiling: làm tròn thành số nguyên (integer) --
+
 -- EX 4 --
 -- cast() as decimal : to convert integers to decimal numbers --
 select round(cast(sum(order_occurrences*item_count)/sum(order_occurrences) as decimal),1) 
