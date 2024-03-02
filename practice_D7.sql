@@ -33,6 +33,54 @@ limit 2
 select tweet_id from tweets where length(content) > 15
 
 -- EX 7 --
+select activity_date, 
+count(distinct user_id) as active_users
+from Activity
+where datediff('2019-07-27',activity_date)<30 and activity_date <= '2019-07-27' -- datediff('2019-07-27',activity_date)<30 : difference in days between the 'activity_date' and 27/07/2019, less than 30 days --
+group by activity_date
+
+-- EX 8 --
+select count(id) from employees 
+where extract(month from joining_date) between 1 and 7 and extract(year from joining_date) =2022
+
+-- EX 9 --
+select position('a' in first_name) from worker where first_name ='Amitah'
+
+-- EX 10 --
+select concat(winery, ' ', substring(title,length(winery)+2, 4)) 
+from winemag_p2
+where country = 'Macedonia'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
