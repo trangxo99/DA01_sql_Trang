@@ -7,7 +7,7 @@ select user_id,
 concat(upper(left(name,1)), lower(right(name, length(name)-a))) as name
 from users order by user_id
 
--- EX 3 --
+-- EX 3 -- ?????
 select manufacturer, 
 concat('$', round(sum(total_sales)/1000000), ' million')
 from pharmacy_sales
