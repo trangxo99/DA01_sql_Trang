@@ -42,7 +42,7 @@ WHERE row_num = 3
 
 
 -- EX 4 --
-WITH latest_transactions_cte AS (
+WITH latest_transactions AS (
   SELECT transaction_date, user_id, product_id, 
   RANK() OVER (PARTITION BY user_id ORDER BY transaction_date DESC) 
   AS transaction_rank 
@@ -50,7 +50,7 @@ WITH latest_transactions_cte AS (
   
 SELECT transaction_date, user_id,
 COUNT(product_id) AS purchase_count
-FROM latest_transactions_cte
+FROM latest_transactions
 WHERE transaction_rank = 1 
 GROUP BY transaction_date, user_id
 ORDER BY transaction_date
